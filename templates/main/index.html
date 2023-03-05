@@ -5,29 +5,96 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
-    {% block head %}
-    {% endblock head %}
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css"
+    />
+    {% block head %} {% endblock head %}
   </head>
-  <body style="background-color: beige;">
-    {% include 'main/navbar.html' %}
-    {% block body %}
-        <div class="container mt-4">
-            <div class="jumbotron-fluid">
-            <h5>
-            Hi there, have you just recently concluded the Semester examination and want to calculate the GPA you are expecting?
-            Or are you looking to set expectations for your self in the upcoming exams?
-            Or are you looking to know where you stand in terms of class?<br>
-            Look no further, we've brought help. You can now calculate your GPA or CGPA without having to
-            crack your brains calculating decimal figures. All you need to do is to provide scores for each courses you are offering
-            (Don't worry, your results are safe and are not saved).
-            </h5>
-            <br>
-            <a href="{% url 'gpahome' %}" class="btn-success btn">Get started now</a>
+  <body style="background-color: beige">
+    {% include 'main/navbar.html' %} {% block body %}
+    <img
+      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQynsG-yOmjdVB1VVu1lNyj-_dD5GE1Q9JIJn6O7g2HFtCerU0rz5f8og8PcMphJiW2Z14&usqp=CAU"
+      alt="gpa"
+      class="rounded d-block mx-auto"
+    />
+    <div class="container mt-4">
+        <div class="row mb-5">
+          <div class="col-md-4 p-4 bg-dark text-white">
+            Hi there, have you just recently concluded the Semester examination
+            and want to calculate the GPA you are expecting?
+          </div>
+          <div class="col-md-4 p-4" style="background-color: rgb(204, 204, 204);">
+            Or are you looking to set expectations for your self in the upcoming
+            exams?
+          </div>
+          <div class="col-md-4 p-4 bg-dark text-white">
+            Or are you looking to know where you stand in terms of class?
+          </div>
+        </div>
+        <div class="container mt-5">
+            <div class="row justify-content-center">
+              <div class="col-md-8 text-center">
+                <h1>Welcome to GPA Calculator</h1>
+                <p class="lead">
+                  Calculate your Grade Point Average (GPA) quickly and easily.
+                </p>
+              </div>
+            </div>
+          <div class="row justify-content-center mt-5 mb-5">
+            <div class="col-md-8">
+              <div class="card">
+                <img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQynsG-yOmjdVB1VVu1lNyj-_dD5GE1Q9JIJn6O7g2HFtCerU0rz5f8og8PcMphJiW2Z14&usqp=CAU"
+                  class="card-img-top"
+                  alt="Semester GPA Calculator"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Semester GPA Calculator</h5>
+                  <p class="card-text">
+                    Calculate your GPA for a single semester by entering the number
+                    of courses and the grade you received for each course.
+                  </p>
+                  <a href="{% url 'gpahome' %}" class="btn btn-success"
+                    >Calculate Semester GPA</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+        <div class="row">
+            <div class="col-md-12">
+                <img
+                src="https://i0.wp.com/edu2success.info/wp-content/uploads/2018/02/bettergpa_green.png?resize=720%2C400&ssl=1"
+                alt="gpa"
+                class="rounded d-block mx-auto"
+              />
             </div>
         </div>
+        <div class="row justify-content-center">
+          <div class="col-md-3 mx-auto text-center p-4" style="background-color: rgb(204, 204, 204);">
+              CGPA Calculator is a web application that helps students calculate their GPA and CGPA without any hassle.
+          </div>
+          <div class="col-md-6 p-4 text-center" style="background-color: rgb(204, 204, 204);">
+              Our easy-to-use interface allows you to record the number of courses in each semester. 
+          </div>
+        </div>
+      </div>
     {% endblock body %}
 
+    {% block footer %}
+    {% include 'main/footer.html' %}
+    {% endblock footer %}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

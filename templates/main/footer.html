@@ -1,0 +1,16 @@
+<footer class="bg-dark text-white text-center py-3">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <p>GPA Calculator &copy; <span id="currentYear"></span> All Rights Reserved.</p>
+        <br>
+        <b>11011</b>
+      </div>
+    </div>
+  </div>
+</footer>
+<script>
+  var currentDate = new Date();
+  var currentYear = currentDate.getFullYear();
+  document.getElementById("currentYear").innerHTML = currentYear;
+</script>
