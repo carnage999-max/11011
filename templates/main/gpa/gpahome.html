@@ -1,0 +1,25 @@
+{% extends 'main/index.html' %}
+{% block head %}
+    <title>GPA</title>
+{% endblock head %}
+
+{% block body %}
+<div class="container mb-4">
+    <div class="jumbotron">
+        <p>
+            Hey there🦾, Calculate your GPA for the current Semester
+        </p>
+    </div>
+</div>
+<div class="container">
+    <h1>GPA calculator</h1>
+</div>
+<div class="container">
+  <form action="" method="post">
+    {% csrf_token %}
+    <label for="num_courses" class="form-label">Number of courses:</label>
+    <input type="number" name="num_courses" id="num_courses" />
+    <input type="submit" value="Submit" class="btn btn-success">
+  </form>
+</div>
+{% endblock body %}

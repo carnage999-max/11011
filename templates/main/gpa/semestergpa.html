@@ -1,0 +1,83 @@
+{% extends 'main/index.html' %}
+    {% block head %}
+    <title>GPA</title>
+    {% endblock head %}
+{% block body %}
+<div class="container">
+    <h1>Semester GPA calculator</h1>
+</div>
+    <form action="#" method="post" class="container mb-4">
+        {% csrf_token %}
+        {% if messages %}
+        <div class="alert alert-success alert-dismissible fade show container">
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            {% for message in messages %}
+                {{ message }} <a class="btn btn-sm btn-success" href="#results">See results</a>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% for i in val %}
+        <label for="course_name_{{ i }}" class="form-label">Course name:</label>
+        <input type="text" name="course_name_{{ i }}" id="course_name_{{ i }}" class="">
+            <label for="course_grade_{{ i }}" class="form-label">Grade:</label>
+            <select name="course_grade_{{ i }}" id="course_grade_{{ i }}" required>
+                <option value="">--- Select Grade ---</option>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option value="D">D</option>
+                <option value="E">E</option>
+                <option value="F">F</option>
+            </select>
+            <label for="units_{{ i }}" class="form-label">Units for course:</label>
+            <input type="number" min="1" max="12" name="units_{{ i }}" id="units_{{ i }}" placeholder="Units" required><br><br>
+        {% endfor %}
+        <input type="submit" value="Calculate GPA" class="btn btn-success">
+    </form>
+
+    <!--Printing GPA-->
+    {% if course_grades %}
+    <div class="shadow-lg p-4 mt-4 mb-4 bg-white container" id="results">
+        <h2><u>Results</u></h2>
+        <h5>
+            <b>GPA: {{ gpa }}</b>
+        </h5>
+        <p>
+        {% if course_names %}
+        Courses Offered:
+        {% for course_name in course_names %}
+            {{ course_name }}
+        {% endfor %}
+        {% endif %}
+        </p>
+        <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Course Grade</th>
+                    <th>Credits</th>
+                    <th>Grade Points</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                {% for course_grade, units, grade_points in course_grades %}
+                    <tr>
+                        <td align="center">
+                           ✔ 
+                        </td>
+                        <td>{{ course_grade }}</td>
+                        <td>{{ units }}</td>
+                        <td>{{ grade_points }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        </div>
+        <h5>
+            Total units offered: <b>{{ total_units }}</b>
+        </h5>
+    {% endif %}
+</div>
+{% endblock body %}
